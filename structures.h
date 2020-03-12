@@ -3,13 +3,13 @@
 #include <vector>
 
 struct Developer {
-	std::string company;
+	std::size_t company;
 	std::size_t bonus;
-	std::vector<std::string> skills;
+	std::vector<std::size_t> skills;
 };
 
 struct Mananger {
-	std::string company;
+	std::size_t company;
 	std::size_t bonus;
 };
 
