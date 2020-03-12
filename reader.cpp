@@ -4,8 +4,8 @@
 #include "structures.h"
 #include <map>
 
-Input reading(std::istream& i) {
-	Input in;
+Data reading(std::istream& i) {
+	Data in;
 	std::size_t w, h;
 	(i >> w >> h).ignore(4, '\n');
 	
@@ -49,14 +49,14 @@ Input reading(std::istream& i) {
 	return in;
 }
 
-std::ostream& operator<<(std::ostream& o, const Output& out) {
-	for (auto& pos : out.developers) {
-		if (pos.x == -1) o << "X\n";
-		else o << pos.x << " " << pos.y << "\n";
+std::ostream& operator<<(std::ostream& o, const Data& out) {
+	for (auto& dev : out.developers) {
+		if (dev.pos.x == -1) o << "X\n";
+		else o << dev.pos.x << " " << dev.pos.y << "\n";
 	}
-	for (auto& pos : out.managers) {
-		if (pos.x == -1) o << "X\n";
-		else o << pos.x << " " << pos.y << "\n";
+	for (auto& man : out.managers) {
+		if (man.pos.x == -1) o << "X\n";
+		else o << man.pos.x << " " << man.pos.y << "\n";
 	}
 	return o;
 }
