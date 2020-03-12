@@ -1,3 +1,7 @@
 .idea/
 Debug/
 cmake-build-debug
+in/*.out
+a.out
+*.tar.gz
+build/
