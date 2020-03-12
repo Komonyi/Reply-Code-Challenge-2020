@@ -51,11 +51,11 @@ Data reading(std::istream& i) {
 std::ostream& operator<<(std::ostream& o, const Data& out) {
 	for (auto& dev : out.developers) {
 		if (!dev.pos.is_valid()) o << "X\n";
-		else o << dev.pos.x << " " << dev.pos.y << "\n";
+		else o << dev.pos.y << " " << dev.pos.x << "\n";
 	}
 	for (auto& man : out.managers) {
 		if (!man.pos.is_valid()) o << "X\n";
-		else o << man.pos.x << " " << man.pos.y << "\n";
+		else o << man.pos.y << " " << man.pos.x << "\n";
 	}
 	return o;
 }

@@ -14,7 +14,7 @@ void solver(Data& in) {
 			else if (in.desks[i][j] == Desk::manager) ++manPlaces;
 		}
 	
-	std::mt19937 e2(1002);
+	std::mt19937 e2(100200);
 
 	
 	std::uniform_int_distribution<> devDist(0, in.developers.size()-1);
@@ -33,7 +33,7 @@ void solver(Data& in) {
 		atDesk[x][y] = true;
 		++success, --devPlaces;
 
-		in.developers[devIndx].pos = Pos{y, x};
+		in.developers[devIndx].pos = Pos{x, y};
 	}
 
 	success = 0;
@@ -46,7 +46,7 @@ void solver(Data& in) {
 		atDesk[x][y] = true;
 		++success, --manPlaces;
 
-		in.managers[manIndx].pos = Pos{y, x};
+		in.managers[manIndx].pos = Pos{x, y};
 	}
 }
 

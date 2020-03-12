@@ -43,7 +43,7 @@ struct Pos {
 	}
 
 	friend std::ostream& operator<<(std::ostream& o, const Pos& p) {
-		return o << '{' << p.x << ',' << p.y << '}';
+		return o << '{' << p.y << ',' << p.x << '}';
 	}
 };
 
