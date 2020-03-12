@@ -4,6 +4,7 @@
 #include <cmath>
 #include <limits>
 #include <array>
+#include <set>
 
 struct Pos {
 	static constexpr auto INVALID = std::numeric_limits<std::int32_t>::min();
@@ -43,7 +44,7 @@ struct Pos {
 struct Developer {
 	std::size_t company;
 	std::size_t bonus;
-	std::vector<std::size_t> skills;
+	std::set<std::size_t> skills;
 	Pos pos;
 
 	bool is_positioned() const {

@@ -30,10 +30,9 @@ Data reading(std::istream& i) {
 		i >> comp >> dev.bonus >> tmp;
 		dev.company = companies.emplace(comp, companies.size()).first->second;
 		
-		dev.skills.resize(tmp);
-		for (auto& skill : dev.skills) {
+		for (std::size_t x = 0; x < tmp; ++x) {
 			i >> ski;
-			skill = skills.emplace(ski, skills.size()).first->second;
+			dev.skills.emplace(skills.emplace(ski, skills.size()).first->second);
 		}
 	}
 
