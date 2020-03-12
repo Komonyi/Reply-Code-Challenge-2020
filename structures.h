@@ -8,13 +8,19 @@ struct Developer {
 	std::vector<std::string> skills;
 };
 
+struct Mananger {
+	std::string company;
+	std::size_t bonus;
+};
+
 enum Desk : char {
 	unavailable = '#',
 	developer = '_',
-	proj_manager = 'M'
+	manager = 'M'
 };
 
 struct Input {
 	std::vector<std::vector<Desk>> desks;
 	std::vector<Developer> developers;
+	std::vector<Mananger> managers;
 };

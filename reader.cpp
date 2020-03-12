@@ -30,5 +30,12 @@ Input read(std::istream& i) {
 			i >> skill;
 	}
 
+	i >> w;
+	in.managers.resize(w);
+
+	for (auto& man : in.managers) {
+		i >> man.company >> man.bonus;
+	}
+
 	return in;
 }
