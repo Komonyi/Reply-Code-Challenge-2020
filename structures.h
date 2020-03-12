@@ -6,12 +6,13 @@
 #include <limits>
 #include <array>
 #include <set>
+#include <iostream>
 
 struct Pos {
-	static constexpr auto INVALID = std::numeric_limits<std::int32_t>::min();
-	std::int32_t x = INVALID, y = INVALID;
+	static constexpr auto INVALID = std::numeric_limits<int>::min();
+	int x = INVALID, y = INVALID;
 
-	constexpr Pos(std::int32_t x, std::int32_t y) noexcept : x(x), y(y) {}
+	constexpr Pos(int x, int y) noexcept : x(x), y(y) {}
 
 	constexpr Pos() noexcept = default;
 
@@ -39,6 +40,10 @@ struct Pos {
 
 	Pos operator+(const Pos& oth) const {
 		return {x + oth.x, y + oth.y};
+	}
+
+	friend std::ostream& operator<<(std::ostream& o, const Pos& p) {
+		return o << '{' << p.x << ',' << p.y << '}';
 	}
 };
 

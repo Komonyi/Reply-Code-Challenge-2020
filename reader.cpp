@@ -8,7 +8,7 @@ Data reading(std::istream& i) {
 	Data in;
 	(i >> in.desksSize.x >> in.desksSize.y).ignore(4, '\n');
 	
-	in.desks.resize(in.desksSize.x, std::vector<Desk>(in.desksSize.y));
+	in.desks.resize(in.desksSize.y, std::vector<Desk>(in.desksSize.x));
 
 	for (auto& deskLine : in.desks) {
 		std::string str;
@@ -50,11 +50,11 @@ Data reading(std::istream& i) {
 
 std::ostream& operator<<(std::ostream& o, const Data& out) {
 	for (auto& dev : out.developers) {
-		if (dev.pos.x == -1) o << "X\n";
+		if (!dev.pos.is_valid()) o << "X\n";
 		else o << dev.pos.x << " " << dev.pos.y << "\n";
 	}
 	for (auto& man : out.managers) {
-		if (man.pos.x == -1) o << "X\n";
+		if (!man.pos.is_valid()) o << "X\n";
 		else o << man.pos.x << " " << man.pos.y << "\n";
 	}
 	return o;
