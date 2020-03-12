@@ -1,6 +1,7 @@
 #include <iostream>
 #include "structures.h"
 #include <random>
+#include "Komonyi.h"
 
 
 void solver(Data& in) {
@@ -15,6 +16,8 @@ void solver(Data& in) {
 int main() {
 	Data i = reading(std::cin);
 	solver(i);
+
+	Komonyi cucc(i);
 	
 	std::cout << i;
 }
