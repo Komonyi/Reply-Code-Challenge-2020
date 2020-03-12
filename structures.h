@@ -13,7 +13,7 @@ struct Mananger {
 	std::size_t bonus;
 };
 
-enum Desk : char {
+enum class Desk : char {
 	unavailable = '#',
 	developer = '_',
 	manager = 'M'
