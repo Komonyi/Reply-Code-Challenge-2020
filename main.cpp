@@ -1,6 +1,9 @@
 #include <iostream>
+#include "structures.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+	Input i = reading(std::cin);
+	Output o(i);
+
+	std::cout << o;
 }

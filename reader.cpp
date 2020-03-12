@@ -4,7 +4,7 @@
 #include "structures.h"
 
 
-Input read(std::istream& i) {
+Input reading(std::istream& i) {
 	Input in;
 	std::size_t w, h;
 	(i >> w >> h).ignore(4, '\n');

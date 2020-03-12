@@ -33,6 +33,10 @@ struct Pos {
 struct Output {
 	std::vector<Pos> developers;
 	std::vector<Pos> managers;
+
+	Output() = default;
+	Output(const Input& i) : developers(i.developers.size()), managers(i.managers.size()) {}
 };
 
+Input reading(std::istream& i);
 std::ostream& operator<<(std::ostream& o, const Output& out);
