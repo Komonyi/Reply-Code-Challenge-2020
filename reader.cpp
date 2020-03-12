@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include "structures.h"
-
+#include <map>
 
 Input reading(std::istream& i) {
 	Input in;
@@ -23,18 +23,27 @@ Input reading(std::istream& i) {
 	i >> w;
 	in.developers.resize(w);
 
+	std::map<std::string, std::size_t> companies;
+	std::map<std::string, std::size_t> skills;
 	for (auto& dev : in.developers) {
-		i >> dev.company >> dev.bonus >> w;
+		std::string comp, ski;
+		i >> comp >> dev.bonus >> w;
+		dev.company = companies.emplace(comp, companies.size()).first->second;
+		
 		dev.skills.resize(w);
-		for (auto& skill : dev.skills)
-			i >> skill;
+		for (auto& skill : dev.skills) {
+			i >> ski;
+			skill = skills.emplace(ski, skills.size()).first->second;
+		}
 	}
 
 	i >> w;
 	in.managers.resize(w);
 
 	for (auto& man : in.managers) {
-		i >> man.company >> man.bonus;
+		std::string comp;
+		i >> comp >> man.bonus;
+		man.company = companies.emplace(comp, companies.size()).first->second;
 	}
 
 	return in;
