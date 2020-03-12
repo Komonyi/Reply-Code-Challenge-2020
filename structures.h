@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <cmath>
 
 struct Developer {
 	std::size_t company;
@@ -27,6 +28,18 @@ struct Input {
 
 struct Pos {
 	std::size_t x = -1, y = -1;
+
+    Pos(size_t x, size_t y) : x(x), y(y) {
+
+    }
+
+    Pos() {}
+
+    std::size_t Distance(Pos& other){
+	    return std::abs(this->x - other.x) + std::abs(this->y - other.y);
+	}
+
+	bool IsNextTo(Pos& other){ return this->Distance(other) == 1; }
 };
 
 
