@@ -24,3 +24,15 @@ struct Input {
 	std::vector<Developer> developers;
 	std::vector<Mananger> managers;
 };
+
+struct Pos {
+	std::size_t x = -1, y = -1;
+};
+
+
+struct Output {
+	std::vector<Pos> developers;
+	std::vector<Pos> managers;
+};
+
+std::ostream& operator<<(std::ostream& o, const Output& out);

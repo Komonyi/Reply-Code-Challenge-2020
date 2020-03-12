@@ -39,3 +39,15 @@ Input read(std::istream& i) {
 
 	return in;
 }
+
+std::ostream& operator<<(std::ostream& o, const Output& out) {
+	for (auto& pos : out.developers) {
+		if (pos.x == -1) o << "X\n";
+		else o << pos.x << " " << pos.y << "\n";
+	}
+	for (auto& pos : out.managers) {
+		if (pos.x == -1) o << "X\n";
+		else o << pos.x << " " << pos.y << "\n";
+	}
+	return o;
+}
