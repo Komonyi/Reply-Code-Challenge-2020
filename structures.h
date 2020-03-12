@@ -18,7 +18,7 @@ struct Pos {
 	    return std::abs(this->x - other.x) + std::abs(this->y - other.y);
 	}
 
-	constexpr bool IsNextTo(const Pos& other) const { return this->Distance(other) == 1; }
+	bool IsNextTo(const Pos& other) const { return this->Distance(other) == 1; }
 
 	constexpr bool is_valid() const {
 		return x != INVALID;
