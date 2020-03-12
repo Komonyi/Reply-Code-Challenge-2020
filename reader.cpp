@@ -6,10 +6,9 @@
 
 Data reading(std::istream& i) {
 	Data in;
-	std::size_t w, h;
-	(i >> w >> h).ignore(4, '\n');
+	(i >> in.desksSize.x >> in.desksSize.y).ignore(4, '\n');
 	
-	in.desks.resize(h, std::vector<Desk>{w});
+	in.desks.resize(in.desksSize.x, std::vector<Desk>(in.desksSize.y));
 
 	for (auto& deskLine : in.desks) {
 		std::string str;
@@ -20,25 +19,26 @@ Data reading(std::istream& i) {
 		}
 	}
 
-	i >> w;
-	in.developers.resize(w);
+	std::size_t tmp;
+	i >> tmp;
+	in.developers.resize(tmp);
 
 	std::map<std::string, std::size_t> companies;
 	std::map<std::string, std::size_t> skills;
 	for (auto& dev : in.developers) {
 		std::string comp, ski;
-		i >> comp >> dev.bonus >> w;
+		i >> comp >> dev.bonus >> tmp;
 		dev.company = companies.emplace(comp, companies.size()).first->second;
 		
-		dev.skills.resize(w);
+		dev.skills.resize(tmp);
 		for (auto& skill : dev.skills) {
 			i >> ski;
 			skill = skills.emplace(ski, skills.size()).first->second;
 		}
 	}
 
-	i >> w;
-	in.managers.resize(w);
+	i >> tmp;
+	in.managers.resize(tmp);
 
 	for (auto& man : in.managers) {
 		std::string comp;
