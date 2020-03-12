@@ -1,4 +1,5 @@
-#pragma once
+#ifndef REPLY_CODE_CHALLENGE_2020_STRUCTURES_H
+#define REPLY_CODE_CHALLENGE_2020_STRUCTURES_H
 
 #include <vector>
 #include <cmath>
@@ -50,3 +51,5 @@ struct Data {
 
 Data reading(std::istream& i);
 std::ostream& operator<<(std::ostream& o, const Data& out);
+
+#endif //REPLY_CODE_CHALLENGE_2020_STRUCTURES_H
